@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zerodayproject-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zerodayproject
+  template:
+    metadata:
+      labels:
+        app: zerodayproject
+    spec:
+      containers:
+      - name: zerodayproject
+        image: adindaaaa/zerodayproject:latest 
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "250m"
+
